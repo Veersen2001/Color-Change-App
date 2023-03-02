@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM-4</title>
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button{
+            padding: 16px;
+            font-size: 20px;
+            border-radius: 25px;
+            background-color:#808080;
+            cursor: pointer;
+
+        }
+    </style>
+</head>
+<body>
+    <!-- html -->
+    <button id="bttn">Click Me Change color</button>
+
+
+    <script>
+        const btn = document.getElementById('bttn');
+        const randomColor = () => {
+            let val = '0123456789ABCDEF';
+            let cons = '#';
+            for(let i=0; i<6; i++)
+            {
+                cons = cons + val[Math.floor(Math.random() * 16)];
+            }
+            return cons;
+        };
+
+    //   console.log(randomColor());
+
+    function changeRandomColor(){
+        document.body.style.backgroundColor=randomColor();
+    }
+
+    btn.addEventListener("click",changeRandomColor);
+
+    </script>
+    <!-- math.random used to give random number
+     (math.random return=0.99)*16 -->
+
+     <!-- math.floor->give round number 16.4->16  -->
+</body>
+</html>
